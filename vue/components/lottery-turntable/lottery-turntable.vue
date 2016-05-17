@@ -62,7 +62,6 @@ export default {
                 if (self.start < num) {
                     self.start++;
                     self.currentIdx = self.start % self.cellNum;
-                    console.log(self.currentIdx);
                 } else {
                     window.clearInterval(self.timer);
                     self.timer = null;
