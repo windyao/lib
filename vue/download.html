@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <title>下载组件</title>
+    <link rel="stylesheet" href="components/download/download.css">
+    <style type="text/css">
+    .app-download-bg-txt{
+        width: 76px;
+    }
+    </style>
+    </head>
+    <body>
+        <ul class="oppo-downlist">
+            <li v-for="app in apps">
+                <div class="app-topic" tid="{{app.topicId}}"></div>
+                <div class="app-base">
+                    <span class="app-icon" data-id="{{app.id}}">
+                        <span data-id="10076082" style="background: url({{app.iconUrl}}) 50% 50% / cover no-repeat;" title="{{app.appName}}" class="app-icon-img"></span>
+                    </span>
+                    <span class="app-info">
+                        <span class="app-title">{{app.appName}}</span>
+                        <span class="star_off">
+                            &#9733;&#9733;&#9733;&#9733;&#9733;
+                            <span class="star_on" style="width:{{app.avggrade * 100 / 5}}%">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </span>
+                        <em class="filesize">{{app.fileSize}}</em>
+                        <span class="app-attr">
+                            <em class="description">{{app.shortDesc}}</em>
+                        </span>
+                    </span>
+                    <span class="app-download">
+                        <a href="#" class="app-download-btn" v-bind:class="app.appStatus" data-id="{{app.id}}" data-master-id="{{app.masterId}}" data-isinstall="0" width="10%" style="border-radius:12px;" has-download="0" v-on:click="download(app)">
+                            <span class="app-download-bg" style="width:{{app.progress}}%;">
+                                <em class="app-download-bg-txt">{{app.txt}}</em>
+                            </span>
+                            <span class="app-download-txt">{{app.txt}}</span>
+                        </a>
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </body>
+    <script type="text/javascript">
+    var downloadData = [{"id":0,"title":"","slogan":"","source":[{"ids":"27757","name":"1\u836f\u7f51","app_name":"1\u836f\u7f51","category_id":"\u7f51\u4e0a\u8d2d\u7269","package_name":"com.yiwang","version_name":"4.8.1","icon_url":"\/uploadFiles\/PImages\/201511\/25\/7e3a19f94bf12a826c6f3164ea2cdebb.png","apk_size":"18470","down_num":"694248","recom_words":"\u8d85\u8fc71000\u4e07\u7528\u6237\u4f7f\u7528\u624b\u673a\u836f\u5e97","oneword_desc":"\u836f\u76d1\u5c40\u8ba4\u8bc1\uff0c\u8d27\u5230\u4ed8\u6b3e\u3002","avggrade":"3.70","version_id":"10025082","state":0,"id":"10025082","masterId":"27757","appName":"1\u836f\u7f51","fileSize":"18470","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201511\/25\/7e3a19f94bf12a826c6f3164ea2cdebb.png","downNum":"694248"},{"ids":"2321","name":"\u5927\u4f17\u70b9\u8bc4","app_name":"\u5927\u4f17\u70b9\u8bc4","category_id":"\u4fbf\u6377\u751f\u6d3b","package_name":"com.dianping.v1","version_name":"8.0.0","icon_url":"\/uploadFiles\/PImages\/201511\/20\/c0b16e0aa771c85c9ebd68fa872b7cf8.png","apk_size":"17113","down_num":"82328886","recom_words":"\u5168\u6c11\u7279\u60e0\uff0c\u5403\u559d\u73a9\u4e501\u5143\u8d77","oneword_desc":"\u56e2\u8d2d\u7f8e\u98df\u7535\u5f71\uff0c\u514d\u8d39\u5403\u559d\u73a9\u4e50\uff01","avggrade":"4.10","version_id":"10032334","state":0,"id":"10032334","masterId":"2321","appName":"\u5927\u4f17\u70b9\u8bc4","fileSize":"17113","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201511\/20\/c0b16e0aa771c85c9ebd68fa872b7cf8.png","downNum":"82328886"},{"ids":"443153","name":"\u5377\u76ae\u6298\u6263","app_name":"\u5377\u76ae\u6298\u6263","category_id":"\u7f51\u4e0a\u8d2d\u7269","package_name":"com.juanpi.ui","version_name":"3.3.8","icon_url":"\/uploadFiles\/PImages\/201512\/14\/8de6e7aeb2aa47610bb5786d60ce7e07.png","apk_size":"8363","down_num":"1708111","recom_words":"\u5377\u76ae\u6298\u6263\u4e13\u6ce8\u4e8e\u7cbe\u9009\u72ec\u5bb6\u6298\u6263\u5546\u54c1","oneword_desc":"9.9\u5305\u90ae\u3001100\u5143\u4ee5\u4e0b\u8d85\u503c\u6298\u6263","avggrade":"4.10","version_id":"10012108","state":0,"id":"10012108","masterId":"443153","appName":"\u5377\u76ae\u6298\u6263","fileSize":"8363","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/14\/8de6e7aeb2aa47610bb5786d60ce7e07.png","downNum":"1708111"},{"ids":"155139","name":"\u817e\u8baf\u65b0\u95fb","app_name":"\u817e\u8baf\u65b0\u95fb","category_id":"\u65b0\u95fb\u9605\u8bfb","package_name":"com.tencent.news","version_name":"4.8.9","icon_url":"\/uploadFiles\/PImages\/201509\/24\/1e3d1357a9ac468cfa6732dfc1a29ebf.png","apk_size":"19475","down_num":"82230117","recom_words":"\u5feb\u901f\uff0c\u5ba2\u89c2\uff0c\u53ca\u65f6","oneword_desc":"\u817e\u8baf\u65b0\u95fb","avggrade":"4.10","version_id":"10030146","state":0,"id":"10030146","masterId":"155139","appName":"\u817e\u8baf\u65b0\u95fb","fileSize":"19475","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201509\/24\/1e3d1357a9ac468cfa6732dfc1a29ebf.png","downNum":"82230117"},{"ids":"2101941","name":"\u5929\u5929\u5feb\u62a5","app_name":"\u5929\u5929\u5feb\u62a5","category_id":"\u65b0\u95fb\u9605\u8bfb","package_name":"com.tencent.reading","version_name":"1.7.1","icon_url":"\/uploadFiles\/PImages\/201511\/23\/4e9e809059e48fd6dd5428043bc84156.png","apk_size":"12188","down_num":"7137590","recom_words":"\u66f4\u5feb\u7684\u65b0\u95fb\u8d44\u8baf\u5ba2\u6237\u7aef","oneword_desc":"\u8f7b\u677e\u9605\u8bfb\u3001\u5feb\u4e50\u5410\u69fd","avggrade":"4.00","version_id":"10030359","state":0,"id":"10030359","masterId":"2101941","appName":"\u5929\u5929\u5feb\u62a5","fileSize":"12188","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201511\/23\/4e9e809059e48fd6dd5428043bc84156.png","downNum":"7137590"},{"ids":"499080","name":"\u8d1d\u8d1d-\u6bcd\u5a74\u6b63\u54c1\u7279\u5356","app_name":"\u8d1d\u8d1d-\u6bcd\u5a74\u6b63\u54c1\u7279\u5356","category_id":"\u7f51\u4e0a\u8d2d\u7269","package_name":"com.husor.beibei","version_name":"3.7.2","icon_url":"\/uploadFiles\/PImages\/201512\/22\/1a7bc99d4a87dbbcf542033eb058708b.png","apk_size":"13608","down_num":"6260672","recom_words":"\u5988\u5988\u4fe1\u8d56\u7684\u6bcd\u5a74\u7279\u5356\u7f51\u7ad9","oneword_desc":"\u4e70\u6bcd\u5a74\uff0c\u5f53\u7136\u4e0a\u8d1d\u8d1d\uff01","avggrade":"3.90","version_id":"10029590","state":0,"id":"10029590","masterId":"499080","appName":"\u8d1d\u8d1d-\u6bcd\u5a74\u6b63\u54c1\u7279\u5356","fileSize":"13608","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/22\/1a7bc99d4a87dbbcf542033eb058708b.png","downNum":"6260672"},{"ids":"287922","name":"\u7c73\u6298","app_name":"\u7c73\u6298","category_id":"\u7f51\u4e0a\u8d2d\u7269","package_name":"com.husor.mizhe","version_name":"4.8.1","icon_url":"\/uploadFiles\/PImages\/201512\/16\/d8acf96c0ee5a217b19d4e2b57db4aec.png","apk_size":"12707","down_num":"4432837","recom_words":"\u7cbe\u900910\u5143\u597d\u8d27\uff0c\u5168\u573a\u5305\u90ae\u4efb\u6027\u4e70\uff01","oneword_desc":"\u5973\u6027\u65f6\u5c1a\u7279\u5356\uff0c\u5168\u573a1\u6298\u8d77","avggrade":"3.80","version_id":"10023133","state":0,"id":"10023133","masterId":"287922","appName":"\u7c73\u6298","fileSize":"12707","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/16\/d8acf96c0ee5a217b19d4e2b57db4aec.png","downNum":"4432837"},{"ids":"5637","name":"\u9ad8\u5fb7\u5730\u56fe","app_name":"\u9ad8\u5fb7\u5730\u56fe","category_id":"\u4ea4\u901a\u5bfc\u822a","package_name":"com.autonavi.minimap","version_name":"7.5.8.2099","icon_url":"\/uploadFiles\/PImages\/201512\/03\/0736ca01c75fd75c52c9edd1ef9fd94c.png","apk_size":"30693","down_num":"21633856","recom_words":"\u51fa\u884c\u5bfc\u822a\u5fc5\u5907\u7684\u5730\u56fe\u5de5\u5177","oneword_desc":"\u4e2d\u56fd\u6700\u4e13\u4e1a\u7684\u624b\u673a\u5730\u56fe\uff01","avggrade":"4.30","version_id":"10019072","state":0,"id":"10019072","masterId":"5637","appName":"\u9ad8\u5fb7\u5730\u56fe","fileSize":"30693","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/03\/0736ca01c75fd75c52c9edd1ef9fd94c.png","downNum":"21633856"},{"ids":"3129","name":"\u4e50\u89c6\u89c6\u9891","app_name":"\u4e50\u89c6\u89c6\u9891","category_id":"\u89c6\u9891\u64ad\u653e","package_name":"com.letv.android.client","version_name":"6.3","icon_url":"\/uploadFiles\/PImages\/201601\/14\/2394584ebc58df22b1cf83c8bd49fa1a.png","apk_size":"28536","down_num":"51800585","recom_words":"\u4e50\u89c6\u966a\u4f60\u770b\u300a\u8288\u6708\u4f20\u300b","oneword_desc":"\u300a\u7761\u5728\u6211\u4e0a\u94fa\u7684\u5144\u5f1f\u300b\u4e50\u89c6\u5168\u7f51\u72ec\u64ad","avggrade":"3.70","version_id":"10029621","state":0,"id":"10029621","masterId":"3129","appName":"\u4e50\u89c6\u89c6\u9891","fileSize":"28536","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201601\/14\/2394584ebc58df22b1cf83c8bd49fa1a.png","downNum":"51800585"},{"ids":"14467","name":"\u552f\u54c1\u4f1a","app_name":"\u552f\u54c1\u4f1a","category_id":"\u7f51\u4e0a\u8d2d\u7269","package_name":"com.achievo.vipshop","version_name":"5.14.3","icon_url":"\/uploadFiles\/PImages\/201601\/07\/8fcf7507f007566b73570e2582e1a2aa.jpg","apk_size":"23674","down_num":"30130826","recom_words":"\u4e00\u5bb6\u4e13\u95e8\u505a\u7279\u5356\u7684\u7f51\u7ad9","oneword_desc":"\u65b0\u5e74\u8d2d\u65b0\u8863\u670d\uff0c\u6b63\u54c1\u7279\u53561\u6298\u8d77","avggrade":"3.90","version_id":"10031352","state":0,"id":"10031352","masterId":"14467","appName":"\u552f\u54c1\u4f1a","fileSize":"23674","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201601\/07\/8fcf7507f007566b73570e2582e1a2aa.jpg","downNum":"30130826"},{"ids":"3810","name":"\u643a\u7a0b\u65c5\u884c","app_name":"\u643a\u7a0b\u65c5\u884c","category_id":"\u65c5\u6e38\u51fa\u884c","package_name":"ctrip.android.view","version_name":"6.12.2","icon_url":"\/uploadFiles\/PImages\/201509\/24\/e0a146ebc46f1bfffc9152eadff1092c.png","apk_size":"32439","down_num":"32204423","recom_words":"\u4f60\u5e26\u7740\u94b1\uff0c\u6211\u5e26\u7740\u4f60\uff01\u8bf4\u8d70\u5c31\u8d70","oneword_desc":"\u643a\u7a0b\u5728\u624b\uff0c\u8bf4\u8d70\u5c31\u8d70\uff01","avggrade":"4.00","version_id":"10012096","state":0,"id":"10012096","masterId":"3810","appName":"\u643a\u7a0b\u65c5\u884c","fileSize":"32439","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201509\/24\/e0a146ebc46f1bfffc9152eadff1092c.png","downNum":"32204423"},{"ids":"3903","name":"\u53bb\u54ea\u513f\u65c5\u884c","app_name":"\u53bb\u54ea\u513f\u65c5\u884c","category_id":"\u65c5\u6e38\u51fa\u884c","package_name":"com.Qunar","version_name":"8.2.8","icon_url":"\/uploadFiles\/PImages\/201511\/18\/4b66f83f6f555120b75caf22244246e8.jpg","apk_size":"29300","down_num":"98171682","recom_words":"\u65c5\u884cAPP,\u548c\u5fc3\u7231\u7684TA\u8fdc\u8d70\u9ad8\u98de\u5427","oneword_desc":"\u53bb\u54ea\u513f\u65c5\u884c\uff0c\u806a\u660e\u4f60\u7684\u65c5\u884c\uff01","avggrade":"4.00","version_id":"10019062","state":0,"id":"10019062","masterId":"3903","appName":"\u53bb\u54ea\u513f\u65c5\u884c","fileSize":"29300","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201511\/18\/4b66f83f6f555120b75caf22244246e8.jpg","downNum":"98171682"},{"ids":"6776","name":"\u5fae\u535a","app_name":"\u5fae\u535a","category_id":"\u793e\u4ea4\u901a\u8baf","package_name":"com.sina.weibo","version_name":"5.7.1","icon_url":"\/uploadFiles\/PImages\/201512\/27\/d00e1648a16c9eaf24f1710913ab068b.png","apk_size":"43521","down_num":"234210403","recom_words":"\u968f\u65f6\u968f\u5730\u5206\u4eab\u65b0\u9c9c\u4e8b","oneword_desc":"\u96a8\u6642\u96a8\u5730\u5206\u4eab\u60a8\u8eab\u908a\u7684\u65b0\u9bae\u4e8b\u3002","avggrade":"4.40","version_id":"10023488","state":0,"id":"10023488","masterId":"6776","appName":"\u5fae\u535a","fileSize":"43521","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/27\/d00e1648a16c9eaf24f1710913ab068b.png","downNum":"234210403"},{"ids":"403681","name":"\u9014\u725b\u65c5\u6e38","app_name":"\u9014\u725b\u65c5\u6e38","category_id":"\u65c5\u6e38\u51fa\u884c","package_name":"com.tuniu.app.ui","version_name":"7.1.0","icon_url":"\/uploadFiles\/PImages\/201601\/14\/60826ab526ff7855c606c7e77fcd6021.png","apk_size":"29569","down_num":"5691539","recom_words":"\u8ba9\u65c5\u6e38\u66f4\u7b80\u5355\uff0c\u8ba9\u51fa\u884c\u66f4\u65b9\u4fbf","oneword_desc":"\u65b0\u7528\u6237\u4e0b\u8f7d\u5373\u5f97200\u5143\u793c\u5305\uff01","avggrade":"3.80","version_id":"10029857","state":0,"id":"10029857","masterId":"403681","appName":"\u9014\u725b\u65c5\u6e38","fileSize":"29569","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201601\/14\/60826ab526ff7855c606c7e77fcd6021.png","downNum":"5691539"},{"ids":"5458","name":"\u641c\u72d0\u89c6\u9891","app_name":"\u641c\u72d0\u89c6\u9891","category_id":"\u89c6\u9891\u64ad\u653e","package_name":"com.sohu.sohuvideo","version_name":"5.2.0","icon_url":"\/uploadFiles\/PImages\/201512\/08\/9ab3342795d5bb25340fac0e0e1a9ccb.png","apk_size":"18691","down_num":"141809842","recom_words":"\u4e2d\u56fd\u6700\u5927\u7684\u89c6\u9891\u95e8\u6237\u7f51\u7ad9","oneword_desc":"\u641c\u72d0\u89c6\u9891\u2014\u2014\u300a\u5306\u5306\u90a3\u5e74\u300b\u518d\u89c1\u503e\u60c5","avggrade":"3.70","version_id":"10027070","state":0,"id":"10027070","masterId":"5458","appName":"\u641c\u72d0\u89c6\u9891","fileSize":"18691","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/08\/9ab3342795d5bb25340fac0e0e1a9ccb.png","downNum":"141809842"},{"ids":"451171","name":"\u8fbe\u4ee4\u5168\u7403\u597d\u8d27","app_name":"\u8fbe\u4ee4\u5168\u7403\u597d\u8d27","category_id":"\u7f51\u4e0a\u8d2d\u7269","package_name":"com.ymall.presentshop","version_name":"5.4.0","icon_url":"\/uploadFiles\/PImages\/201601\/19\/17615d89db6e1ca7d35a0a7014c1a82f.png","apk_size":"7102","down_num":"3784305","recom_words":"\u80fd\u5e2e\u4f60\u6dd8\u5230\u597d\u8d27\u53bb\u9001\u793c\u7684\u5e94\u7528","oneword_desc":"\u6765\u8fbe\u4ee4\uff0c\u72c2\u8d2d\u4e0d\u5241\u624b\u8d8a\u4e70\u8d8a\u7701","avggrade":"3.80","version_id":"10041088","state":0,"id":"10041088","masterId":"451171","appName":"\u8fbe\u4ee4\u5168\u7403\u597d\u8d27","fileSize":"7102","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201601\/19\/17615d89db6e1ca7d35a0a7014c1a82f.png","downNum":"3784305"},{"ids":"126016","name":"\u82cf\u5b81\u6613\u8d2d","app_name":"\u82cf\u5b81\u6613\u8d2d","category_id":"\u7f51\u4e0a\u8d2d\u7269","package_name":"com.suning.mobile.ebuy","version_name":"3.8.4","icon_url":"\/uploadFiles\/PImages\/201512\/21\/03174d3a3aa728f99c564eb6f70c485f.png","apk_size":"28236","down_num":"4086490","recom_words":"\u8fc7\u5e74\u8d27\u8282\uff0c\u7ea2\u5305\u4efb\u610f\u9886\uff0c\u4e00\u8def\u7701\u5230\u5bb6","oneword_desc":"\u8d85\u7ea7\u5e74\u8d27\u8282\u7ea2\u5305\u4efb\u610f\u9886\uff0c\u4e00\u8def\u7701\u5230\u5bb6","avggrade":"3.90","version_id":"10016720","state":0,"id":"10016720","masterId":"126016","appName":"\u82cf\u5b81\u6613\u8d2d","fileSize":"28236","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/21\/03174d3a3aa728f99c564eb6f70c485f.png","downNum":"4086490"},{"ids":"629513","name":"\u4eac\u4e1c\u91d1\u878d","app_name":"\u4eac\u4e1c\u91d1\u878d","category_id":"\u91d1\u878d\u7406\u8d22","package_name":"com.jd.jrapp","version_name":"3.4.3","icon_url":"\/uploadFiles\/PImages\/201512\/30\/060c1c4a76a36353a0de496ef9c09efb.png","apk_size":"8301","down_num":"356219","recom_words":"\u7406\u8d22\u6536\u76ca\u6bd4\u540c\u7c7b\u5e94\u7528\u8981\u9ad8~","oneword_desc":"\u4eac\u4e1c\u65d7\u4e0b\u6295\u8d44\u7406\u8d22\u5e73\u53f0","avggrade":"4.10","version_id":"10018590","state":0,"id":"10018590","masterId":"629513","appName":"\u4eac\u4e1c\u91d1\u878d","fileSize":"8301","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/30\/060c1c4a76a36353a0de496ef9c09efb.png","downNum":"356219"},{"ids":"6021","name":"\u7f8e\u56e2","app_name":"\u7f8e\u56e2","category_id":"\u4fbf\u6377\u751f\u6d3b","package_name":"com.sankuai.meituan","version_name":"6.4.1","icon_url":"\/uploadFiles\/PImages\/201507\/30\/e903ab0d7748463ea8a84f14f6afefb5.png","apk_size":"16937","down_num":"116649355","recom_words":"\u7f8e\u56e2\u4e00\u6b21\u7f8e\u4e00\u6b21","oneword_desc":"1\u5206\u94b1\u55e8\u5403","avggrade":"4.20","version_id":"10026985","state":0,"id":"10026985","masterId":"6021","appName":"\u7f8e\u56e2","fileSize":"16937","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201507\/30\/e903ab0d7748463ea8a84f14f6afefb5.png","downNum":"116649355"},{"ids":"2350","name":"QQ\u97f3\u4e50","app_name":"QQ\u97f3\u4e50","category_id":"\u97f3\u4e50\u7535\u53f0","package_name":"com.tencent.qqmusic","version_name":"5.8.0.18","icon_url":"\/uploadFiles\/PImages\/201512\/10\/adf8fd9d3ed11c4c84f9e2d72a38eb0b.png","apk_size":"26939","down_num":"108219464","recom_words":"\u8d44\u6e90\u6700\u5168\u7684\u97f3\u4e50\u5e94\u7528","oneword_desc":"\u66f2\u5e93\u6700\u5168\uff0c\u544a\u522b\u7f3a\u6b4c\u70e6\u607c\uff01\uff01","avggrade":"4.00","version_id":"10002292","state":0,"id":"10002292","masterId":"2350","appName":"QQ\u97f3\u4e50","fileSize":"26939","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/10\/adf8fd9d3ed11c4c84f9e2d72a38eb0b.png","downNum":"108219464"},{"ids":"403476","name":"\u963f\u91cc\u65c5\u884c","app_name":"\u963f\u91cc\u65c5\u884c","category_id":"\u65c5\u6e38\u51fa\u884c","package_name":"com.taobao.trip","version_name":"6.2.0.011404","icon_url":"\/uploadFiles\/PImages\/201512\/21\/3f297f4be28e84294ff0d85520ddeaf4.png","apk_size":"31410","down_num":"4534451","recom_words":"\u65c5\u884c\u5fc5\u5907\u5e94\u7528\uff0c\u9001999\u5143\u53a6\u95e8\u6e38\uff01","oneword_desc":"\u963f\u91cc\u65c5\u884c\uff0c\u4e16\u754c\u89e6\u624b\u53ef\u884c","avggrade":"4.30","version_id":"10030310","state":0,"id":"10030310","masterId":"403476","appName":"\u963f\u91cc\u65c5\u884c","fileSize":"31410","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/21\/3f297f4be28e84294ff0d85520ddeaf4.png","downNum":"4534451"},{"ids":"658635","name":"\u4e07\u8868-\u4e70\u624b\u8868\u3001\u540d\u8868","app_name":"\u4e07\u8868-\u4e70\u624b\u8868\u3001\u540d\u8868","category_id":"\u7f51\u4e0a\u8d2d\u7269","package_name":"com.wbiao.wbapp","version_name":"2.5.2","icon_url":"\/uploadFiles\/PImages\/201511\/27\/1ce71925ccc1d869505b64274d952319.png","apk_size":"12102","down_num":"25545","recom_words":"\u4e13\u6ce8\u9500\u552e\u539f\u88c5\u6b63\u54c1\u4e2d\u9ad8\u6863\u540d\u8868","oneword_desc":"\u4e13\u6ce8\u9500\u552e\u539f\u88c5\u6b63\u54c1\u4e2d\u9ad8\u6863\u540d\u8868","avggrade":"4.80","version_id":"10027006","state":0,"id":"10027006","masterId":"658635","appName":"\u4e07\u8868-\u4e70\u624b\u8868\u3001\u540d\u8868","fileSize":"12102","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201511\/27\/1ce71925ccc1d869505b64274d952319.png","downNum":"25545"},{"ids":"184038","name":"\u6298800","app_name":"\u6298800","category_id":"\u7f51\u4e0a\u8d2d\u7269","package_name":"com.tuan800.tao800","version_name":"4.2.2","icon_url":"\/uploadFiles\/PImages\/201512\/18\/e4b4854f22ec0ddb93c781a28c9242d8.png","apk_size":"11510","down_num":"11813691","recom_words":"\u6bcf\u5929\u4e07\u4f59\u6b3e9.9\u5143\u5305\u90ae\u5546\u54c1\u66f4\u65b0\u63a8\u8350","oneword_desc":"8\u57578\u7b49\u4f60\u6765\u62a2~","avggrade":"4.20","version_id":"10029687","state":0,"id":"10029687","masterId":"184038","appName":"\u6298800","fileSize":"11510","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/18\/e4b4854f22ec0ddb93c781a28c9242d8.png","downNum":"11813691"},{"ids":"2316427","name":"\u827e\u7c73\u76f4\u64ad","app_name":"\u827e\u7c73\u76f4\u64ad","category_id":"\u793e\u4ea4\u901a\u8baf","package_name":"com.mobimtech.natives.ivp","version_name":"5.0.4","icon_url":"\/uploadFiles\/PImages\/201601\/08\/1dee758bf71b990d746975139d89f830.png","apk_size":"12305","down_num":"8467","recom_words":"","oneword_desc":"\u4e91\u96c6\u4f18\u79c0\u7f8e\u5973\u4e3b\u64ad\u5e76\u9644\u6709\u903c\u683c\u7684\u5e73\u53f0","avggrade":"4.80","version_id":"10025175","state":6,"id":"10025175","masterId":"2316427","appName":"\u827e\u7c73\u76f4\u64ad","fileSize":"12305","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201601\/08\/1dee758bf71b990d746975139d89f830.png","downNum":"8467"},{"ids":"376449","name":"\u54aa\u5495\u97f3\u4e50","app_name":"\u54aa\u5495\u97f3\u4e50","category_id":"\u97f3\u4e50\u7535\u53f0","package_name":"cmccwm.mobilemusic","version_name":"4.2.2.8","icon_url":"\/uploadFiles\/PImages\/201401\/26\/58331cc1b5a54823a75e2dc568bc62e1.png","apk_size":"13067","down_num":"2777153","recom_words":"300\u4e07\u6b63\u7248\u66f2\u5e93\u8fd8\u662f\u5b8c\u5168\u505c\u4e0d\u4e0b\u6765","oneword_desc":"\u4e0b\u8f7d\u54aa\u5495\u97f3\u4e50\u5ba2\u6237\u7aef\u5373\u53ef\u9886\u6d41\u91cf\uff01","avggrade":"3.60","version_id":"2355734","state":0,"id":"2355734","masterId":"376449","appName":"\u54aa\u5495\u97f3\u4e50","fileSize":"13067","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201401\/26\/58331cc1b5a54823a75e2dc568bc62e1.png","downNum":"2777153"},{"ids":"456560","name":"\u4f5c\u4e1a\u5e2e","app_name":"\u4f5c\u4e1a\u5e2e","category_id":"\u6559\u80b2\u5b66\u4e60","package_name":"com.baidu.homework","version_name":"5.16.0","icon_url":"\/uploadFiles\/PImages\/201510\/30\/e59c106f2097b93ceb9c508835ef3c27.png","apk_size":"10055","down_num":"16697693","recom_words":"\u4e2d\u5c0f\u5b66\u79fb\u52a8\u5b66\u4e60\u4ea4\u6d41\u5e73\u53f0\uff0c\u4e0d\u61c2\u5c31\u8981\u6765","oneword_desc":"\u62cd\u7167\u641c\u9898\uff0c\u79d2\u51fa\u7b54\u6848\uff01","avggrade":"4.40","version_id":"10029804","state":0,"id":"10029804","masterId":"456560","appName":"\u4f5c\u4e1a\u5e2e","fileSize":"10055","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201510\/30\/e59c106f2097b93ceb9c508835ef3c27.png","downNum":"16697693"},{"ids":"2371578","name":"\u6dd8\u5b9d\u795e\u5668-\u4e00\u5143\u593a\u5b9d","app_name":"\u6dd8\u5b9d\u795e\u5668-\u4e00\u5143\u593a\u5b9d","category_id":"\u7f51\u4e0a\u8d2d\u7269","package_name":"com.crazyshopping.tbsqyydb","version_name":"1.0","icon_url":"\/uploadFiles\/PImages\/201512\/04\/92e5731740abbc4c0c9007cc59b471e5.png","apk_size":"2573","down_num":"455","recom_words":"","oneword_desc":"\u4e00\u5143\u6dd8\u5b9d\u795e\u5668 \u4e00\u5143\u593a\u5b9d\u52a9\u624b","avggrade":"1.00","version_id":"2371578","state":6,"id":"2371578","masterId":"2371578","appName":"\u6dd8\u5b9d\u795e\u5668-\u4e00\u5143\u593a\u5b9d","fileSize":"2573","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/04\/92e5731740abbc4c0c9007cc59b471e5.png","downNum":"455"},{"ids":"491916","name":"\u679c\u5b9d\u4e09\u56fd","app_name":"\u679c\u5b9d\u4e09\u56fd","category_id":"\u52a8\u4f5c\u5192\u9669","package_name":"com.centurysoft.fruityrobo","version_name":"3.5","icon_url":"\/uploadFiles\/PImages\/201504\/29\/883bdcde4fe4015db38b8da385280637.png","apk_size":"62349","down_num":"6566047","recom_words":"\u9ec4\u91d1\u7248\u5415\u5e03\u643a\u4e13\u5c5e\u9ec4\u91d1\u6b66\u5668","oneword_desc":"\u6fc0\u60c5\u5bf9\u6218\u8c01\u5230\u5e95\u624d\u662f\u6700\u5f3a\u7684PK\u4e4b\u738b","avggrade":"4.20","version_id":"10025013","state":0,"id":"10025013","masterId":"491916","appName":"\u679c\u5b9d\u4e09\u56fd","fileSize":"62349","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201504\/29\/883bdcde4fe4015db38b8da385280637.png","downNum":"6566047"},{"ids":"2122858","name":"\u65b0\u82b1\u5343\u9aa8","app_name":"\u65b0\u82b1\u5343\u9aa8","category_id":"\u89d2\u8272\u626e\u6f14","package_name":"com.leduo.xinhuaqiangu.nearme.gamecenter","version_name":"2.0.0","icon_url":"\/uploadFiles\/PImages\/201512\/04\/599513ea287c432384b96ac533e520f4.png","apk_size":"171694","down_num":"362182","recom_words":"","oneword_desc":"\u767b\u9646\u9001\u6a59\u5ba0\u82b1\u5343\u9aa8","avggrade":"3.70","version_id":"2368527","state":6,"id":"2368527","masterId":"2122858","appName":"\u65b0\u82b1\u5343\u9aa8","fileSize":"171694","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201512\/04\/599513ea287c432384b96ac533e520f4.png","downNum":"362182"},{"ids":"593022","name":"\u5c11\u5e74\u4e09\u56fd\u5fd7","app_name":"\u5c11\u5e74\u4e09\u56fd\u5fd7","category_id":"\u89d2\u8272\u626e\u6f14","package_name":"com.snsgz.apk.nearme.gamecenter","version_name":"2.2.17","icon_url":"\/uploadFiles\/PImages\/201601\/14\/11d719c89ecc46d38a7cec1b69445ccb.png","apk_size":"130216","down_num":"4043944","recom_words":"\u6700\u4eb2\u6c11\uff0c\u6700\u661f\u5c1a\uff0c\u6700\u9177\u70ab","oneword_desc":"7\u5929\u9001\u8d75\u4e91\u5415\u5e03\uff0c\u4e09\u56fd\u5c40\u52bf\u4e00\u624b\u638c\u63e1","avggrade":"4.40","version_id":"10029586","state":0,"id":"10029586","masterId":"593022","appName":"\u5c11\u5e74\u4e09\u56fd\u5fd7","fileSize":"130216","iconUrl":"http:\/\/storefspic.nearme.com.cn\/uploadFiles\/PImages\/201601\/14\/11d719c89ecc46d38a7cec1b69445ccb.png","downNum":"4043944"}]}];
+    </script>
+    <script src="components/util/nearme_appstore_api.js"></script>
+    <script type="text/javascript">
+        //请求地址
+    var serviceURL = 'http://i3.store.nearme.com.cn';/*'http://i3.store.nearme.com.cn';'http://116.31.94.43:8888';*/
+    //通用的提交数据
+    var postPara = {
+        userToken: (NearMeAppStoreJsApi.getToken() || ''),
+        imei: (NearMeAppStoreJsApi.getImei() || ''),
+        activityId: '5743'
+    };
+    //回调函数
+    var callBackName = 'callback';
+    //
+    var hostStr = 'http://storefspic.nearme.com.cn';
+    //username, phone
+    var userName = NearMeAppStoreJsApi.getUserAccount() || '';
+    var phone = NearMeAppStoreJsApi.getPhoneNum() || '';
+    </script>
+    <script src="lib/vue.min.js"></script>
+    <script src="lib/vue-lazyload.js"></script>
+    <script src="components/down-load/down-load.html"></script>
+    <script type="text/javascript">
+        var dealData = function (D) {
+            var data;
+            D = D || [];
+            if (typeof D == 'object' || typeof D == 'array') {
+                data = D;
+            } else if (typeof D == 'string') {
+                data = (0, eval)("(" + D + ")");
+            }
+            return data;
+        };
+
+        var getFirstDownloadList = function (D) {//获取下载列表数据
+            var data = dealData(D);
+            var tempData;
+            if (data.length > 0 && data[0]['source']) {
+                tempData = data[0]['source'];
+                for (var i = 0; i < tempData.length; i++) {
+                    //tempData[i]['masterId'] = tempData[i]['masterId'];
+                    tempData[i]['id'] = tempData[i]['version_id'];
+                    tempData[i]['appName'] = tempData[i]['app_name'];
+                    tempData[i]['shortDesc'] = tempData[i]['oneword_desc'];
+                    tempData[i]['fileSize'] = tempData[i]['apk_size'];
+                    tempData[i]['iconUrl'] = (tempData[i]['icon_url'].indexOf('http') > -1 ? tempData[i]['icon_url'] : ((hostStr || '') + tempData[i]['icon_url']));
+                    tempData[i]['downNum'] = tempData[i]['down_num'];
+                    tempData[i]['appStatus'] = {
+                        'downloaded': false,
+                        'undownload': true
+                    };
+                    tempData[i]['txt'] = '获取';
+                    tempData[i]['disabled'] = false;
+                    tempData[i]['status'] = 0;
+                    tempData[i]['progress'] = 0;
+                }
+                return tempData;
+            } else {
+                return [];
+            }
+        };
+
+        var downloadList = new Vue({
+          el: '.oppo-downlist',
+          data: {
+            apps: [{
+
+            }]
+          },
+          created: function () {
+
+          },
+          methods: {
+            getStatus: function () {
+                var self = this;
+                var checkStatus = function () {
+                    var pid = '';//pid
+                    var installed = false;//
+                    var tempItem;
+                    for (var i = 0; i < self.apps.length; i++) {
+                        if (NearMeAppStoreJsApi) {//
+                            tempItem = self.apps[i];
+                            pid = tempItem['id'];
+                            installed = NearMeAppStoreJsApi.isInstalledByPid(pid);
+                            tempItem['appStatus'] = {
+                                'downloaded': installed,
+                                'undownload': !installed
+                            }
+                            tempItem['txt'] = (installed ? '已获取' : '获取');
+                            tempItem['disabled'] = installed;
+
+                            if (!installed) {//
+                                tempItem['status'] = NearMeAppStoreJsApi.getButtonStatus(pid);
+                                tempItem['progress'] = NearMeAppStoreJsApi.getProgress(pid);
+                                if (tempItem['progress'] >= 100) {
+                                    tempItem['progress'] = 0;
+                                }
+                                if (tempItem['status'] == 2) {//处于暂停状态
+                                    tempItem['txt'] = '继续';
+                                } else if (tempItem['status'] == 1) {//下载状态
+                                    tempItem['txt'] = (tempItem['progress'] + '%');
+                                }
+                            }
+
+                            Vue.set(self.apps[i], tempItem);
+                        }
+                    }
+                }
+                if (this.apps.length > 0) {
+                    setInterval(function () {
+                        checkStatus();
+                    }, 1000);
+                }
+            },
+            setData: function (d) {
+                //set组件的数据
+                Vue.set(this, 'apps', getFirstDownloadList(d));
+                this.getStatus();
+            },
+            download: function (app) {                
+                if (typeof NearMeAppStoreJsApi.downloadByPid == 'function') {
+                    NearMeAppStoreJsApi.downloadByPid(app.id);
+                }
+            }
+          }
+        });
+
+        downloadList.setData(downloadData);
+    </script>
+</html>

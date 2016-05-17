@@ -1,0 +1,162 @@
+.oppo-download-hd{display:block;}
+
+.oppo-download { text-align: left; width: 10%;}
+.oppo-download li{border-bottom:1px solid #e6e6e6;border-top:1px solid #f3f3f3;}
+.oppo-download li .app-base > *{display:inline-block;}
+.oppo-download-btn{display: inline-block; border: 1px solid #00925f; border-radius: 5px; width: 66px; text-align: center; padding: 5px;position:relative;}
+.oppo-download-bg{display:inline-block;height:100%;width:0;overflow:hidden;position:absolute;left:0;background-color:green;border-radius:3px;}
+.undownload { background-color:#fbfbfb; color: #00925f;}
+.downloaded { background-color:#fff; color: #585858; border: 1px solid #d8d8d8;}
+.downloading { vertical-align: middle;}
+
+.app-icon span, .app-info > *, .appinfo ul li > span, .downloading {
+    vertical-align: middle
+}
+
+.oppo-downlist {
+    color: #9fa6a6;
+    padding: 12px;
+    font-size: 12px
+}
+
+.oppo-downlist em{font-style: normal;}
+
+.oppo-downlist li {
+    display: table;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.oppo-downlist li .app-base > span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.app-icon {
+    width: 10%;
+    border-radius: 5px
+}
+
+.app-icon span {
+    width: 56px;
+    height: 56px;
+    border-radius: 5px;
+    display: inline-block
+}
+
+.app-icon-img{
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size:cover;
+}
+
+.app-info {
+    width: 80%;
+    padding: 0 12px
+}
+
+.app-attr, .app-title {
+    width: 100%;
+    display: inline-block
+}
+
+.app-title {
+    font-size: 16px;
+    color: #585858;
+    font-weight: 700
+}
+
+.app-attr {
+    font-size: 12px;
+    color: #9fa6a6
+}
+
+.app-attr .filesize {
+    margin-right: 15px
+}
+
+.app-grade {
+    display: inline-block
+}
+
+span.star_off {
+    line-height: 13px;
+    color: #cbcbcb;
+    font-size: 13px;
+    display: inline-block;
+    height: 13px;
+    margin: 3px 5px 3px 0;
+    position: relative;
+    zoom:1;
+}
+
+span.star_off span.star_on {
+    color: #ffc600;
+    height: 13px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    zoom:1;
+    overflow: hidden;
+}
+
+.app-download {
+    text-align: left;
+    width: 10%
+}
+
+.app-download-btn {
+    display: inline-block;
+    border: 1px solid #00925f;
+    border-radius: 5px;
+    width: 66px;
+    height: 26px;
+    text-align: center;
+    text-decoration: none;
+    padding: 0 5px;
+    line-height: 26px;
+    position: relative;
+    overflow: hidden;
+}
+
+.undownload {
+    background-color: #fbfbfb;
+    color: #00925f
+}
+
+.downloaded {
+    background-color: #fff;
+    color: #585858;
+    border: 1px solid #d8d8d8
+}
+
+.app-download-bg {
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    background-color: #00925f;
+}
+
+.app-download-bg-txt {
+    display: block;
+    width: 76px;
+    height: 100%;
+    color: #fff;
+    font-style:normal;
+}
+
+.filesize {
+    color: #40a872
+}
+
+.note {
+    display: none;
+    padding: 10px;
+    background: #ff7d55;
+    color: #ffe930;
+    border-bottom: 1px solid #ccc
+}

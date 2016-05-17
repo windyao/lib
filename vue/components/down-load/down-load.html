@@ -1,0 +1,32 @@
+<!-- component template -->
+<script type="text/x-template" id="html-down-load">
+    <ul class="oppo-downlist">
+        <li v-for="app in data">
+            <div class="app-topic" tid="{{app.topicId}}"></div>
+            <div class="app-base">
+                <span class="app-icon" data-id="{{app.id}}">
+                    <span data-id="10076082" style="background: url({{app.iconUrl}}) 50% 50% / cover no-repeat;" title="{{app.appName}}" class="app-icon-img"></span>
+                </span>
+                <span class="app-info">
+                    <span class="app-title">{{app.appName}}</span>
+                    <span class="star_off">
+                        &#9733;&#9733;&#9733;&#9733;&#9733;
+                        <span class="star_on" style="width:{{app.avggrade * 100 / 5}}%">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    </span>
+                    <em class="filesize">{{app.fileSize}}</em>
+                    <span class="app-attr">
+                        <em class="description">{{app.shortDesc}}</em>
+                    </span>
+                </span>
+                <span class="app-download">
+                    <a href="javascript:void(0);" class="app-download-btn" v-bind:class="app.appStatus" data-id="{{app.id}}" data-master-id="{{app.masterId}}" data-isinstall="0" width="10%" style="border-radius:12px;" has-download="0" @click="download(app)">
+                        <span class="app-download-bg" style="width:{{app.progress}}%;">
+                            <em class="app-download-bg-txt">{{app.txt}}</em>
+                        </span>
+                        <span class="app-download-txt">{{app.txt}}</span>
+                    </a>
+                </span>
+            </div>
+        </li>
+    </ul>
+</script>

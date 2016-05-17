@@ -1,0 +1,52 @@
+.oppo-lottery {
+    border-collapse: separate;
+}
+
+.oppo-lottery td {
+    text-align: center;
+    vertical-align: top;
+    background-color: #f0f0f0;
+    background-position: 50% 50%;
+    background-size: 60% auto;
+    background-repeat: no-repeat;
+    border-spacing: 5px;
+    border-radius: 5px;
+    background-clip: padding-box;
+    height: 64px;
+    position: relative;
+    vertical-align: bottom;
+}
+
+.oppo-lottery td.center-cell {
+    background: none;    
+}
+
+.oppo-lottery td p {
+    line-height: 1;
+    margin: 0;
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+}
+
+.oppo-lottery td.active {
+    border: 2px solid #ccc;
+}
+
+.oppo-lottery td.center-cell {
+    vertical-align: middle;
+}
+
+.oppo-lottery button {
+    cursor: pointer;
+}
+
+.oppo-lottery-msg{
+    display: inline-block;
+}
+
+.oppo-lottery-img {
+    margin-top: 10%;
+    max-width: 50px;
+    max-height: 30px;
+}
